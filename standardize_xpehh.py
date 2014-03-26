@@ -8,6 +8,16 @@ import scipy.stats
 myreffile=sys.argv[1]
 myfiletostandardize=sys.argv[2]
 
+############################################
+
+def is_number(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+
 #################################################################
 xpehhref=[]
 f=open (myfiletostandardize, 'r')
@@ -34,5 +44,10 @@ for item in union:
 ################################################################# 
 for line in open (myfiletostandardize, 'r'):
 	z=line.split()     
-	print '%s\t%s' %(line.rstrip(), myrefdic[float(z[-1])]  ) 
+	if is_number(z[-1]) : 
+		print '%s\t%s' %(line.rstrip(), myrefdic[float(z[-1])]  ) 
+	else: print '%s\t%s' %(line.rstrip(), 'nan' )
+
+
+
 
