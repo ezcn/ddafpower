@@ -1,4 +1,4 @@
-#!/software/bin/python-2.7
+#!/usr/bin/python
 import numpy
 import re
 import gzip
